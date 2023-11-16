@@ -45,8 +45,19 @@ namespace CRUD
             //Add the data if editing = false
             else
             {
-       
-                notes.Rows.Add(title_txtBox.Text, description_txtBox.Text);
+
+                try
+                {
+                    //check if the title or description textBox is empty
+                    if (string.IsNullOrEmpty(title_txtBox.Text)|| string.IsNullOrEmpty(title_txtBox.Text))
+                    {
+                        throw new Exception("Please enter values for one of the fields.");
+                    }
+                    notes.Rows.Add(title_txtBox.Text, description_txtBox.Text);
+                } catch (Exception ex)
+                    {
+                    MessageBox.Show("Error: " + ex.Message, "Data Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } 
             }
 
             //reset the value in textBox
@@ -61,6 +72,7 @@ namespace CRUD
             notes.Rows[notesDGV.CurrentCell.RowIndex].Delete();
         }
 
+        //Display the selected row data in textBox
         private void readButton_Click(object sender, EventArgs e)
         {
             title_txtBox.Text = notes.Rows[notesDGV.CurrentCell.RowIndex].ItemArray[0].ToString();
@@ -68,7 +80,7 @@ namespace CRUD
             editing = true;
         }
 
-        //Datagridview cell double click event
+        //Datagridview cell click event
         // display title and description in textBox
         private void notesDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
