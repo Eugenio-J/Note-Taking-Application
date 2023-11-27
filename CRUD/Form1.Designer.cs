@@ -33,9 +33,9 @@
             label1 = new Label();
             label2 = new Label();
             notesDGV = new DataGridView();
-            createButton = new Button();
+            insertButton = new Button();
             readButton = new Button();
-            saveButton = new Button();
+            updateButton = new Button();
             deleteButton = new Button();
             ((System.ComponentModel.ISupportInitialize)notesDGV).BeginInit();
             SuspendLayout();
@@ -85,17 +85,16 @@
             notesDGV.RowTemplate.Height = 25;
             notesDGV.Size = new Size(478, 257);
             notesDGV.TabIndex = 4;
-            notesDGV.CellDoubleClick += notesDGV_CellDoubleClick;
             // 
-            // createButton
+            // insertButton
             // 
-            createButton.Location = new Point(390, 313);
-            createButton.Name = "createButton";
-            createButton.Size = new Size(100, 43);
-            createButton.TabIndex = 5;
-            createButton.Text = "Create";
-            createButton.UseVisualStyleBackColor = true;
-            createButton.Click += createButton_Click;
+            insertButton.Location = new Point(390, 313);
+            insertButton.Name = "insertButton";
+            insertButton.Size = new Size(100, 43);
+            insertButton.TabIndex = 5;
+            insertButton.Text = "Insert";
+            insertButton.UseVisualStyleBackColor = true;
+            insertButton.Click += insertButton_Click;
             // 
             // readButton
             // 
@@ -107,15 +106,15 @@
             readButton.UseVisualStyleBackColor = true;
             readButton.Click += readButton_Click;
             // 
-            // saveButton
+            // updateButton
             // 
-            saveButton.Location = new Point(390, 387);
-            saveButton.Name = "saveButton";
-            saveButton.Size = new Size(100, 39);
-            saveButton.TabIndex = 7;
-            saveButton.Text = "Save";
-            saveButton.UseVisualStyleBackColor = true;
-            saveButton.Click += saveButton_Click;
+            updateButton.Location = new Point(390, 387);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(100, 39);
+            updateButton.TabIndex = 7;
+            updateButton.Text = "Update";
+            updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += updateButton_Click;
             // 
             // deleteButton
             // 
@@ -134,9 +133,9 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(deleteButton);
-            Controls.Add(saveButton);
+            Controls.Add(updateButton);
             Controls.Add(readButton);
-            Controls.Add(createButton);
+            Controls.Add(insertButton);
             Controls.Add(notesDGV);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -157,9 +156,9 @@
         private Label label1;
         private Label label2;
         private DataGridView notesDGV;
-        private Button createButton;
+        private Button insertButton;
         private Button readButton;
-        private Button saveButton;
+        private Button updateButton;
         private Button deleteButton;
     }
 }
